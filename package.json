@@ -1,5 +1,5 @@
 {
-  "name": "RSA_Instructor_Finder",
+  "name": "RSA_Instructor_Buddy",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -21,7 +21,6 @@
     "react-native": "0.62.2",
     "react-native-device-info": "^5.5.4",
     "react-native-gesture-handler": "^1.6.1",
-    "react-native-git-upgrade": "^0.2.7",
     "react-native-paper": "^3.6.0",
     "react-native-reanimated": "^1.7.1",
     "react-native-safe-area-context": "^0.7.3",
@@ -40,6 +39,7 @@
     "@babel/runtime": "^7.6.2",
     "@react-native-community/eslint-config": "^0.0.5",
     "babel-jest": "^24.9.0",
+    "babel-plugin-module-resolver": "4.0.0",
     "eslint": "^6.5.1",
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.58.0",
