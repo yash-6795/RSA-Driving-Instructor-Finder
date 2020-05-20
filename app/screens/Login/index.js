@@ -18,7 +18,7 @@ export default function Login({navigation}) {
     const [password, setPassword] = useState({ value: '', error: '' });
 
     const onLogin = () => {
-        dispatch(loginActions.requestLogin('test', '1234'));
+        dispatch(loginActions.requestLogin(email, password));
     }
 
     return (

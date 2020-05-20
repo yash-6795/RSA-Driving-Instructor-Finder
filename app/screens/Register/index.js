@@ -11,8 +11,11 @@ import {
     passwordValidator,
     nameValidator,
 } from '../../utils/validator';
+import * as registerActions from "../../actions/registerActions";
+import {useDispatch} from "react-redux";
 
 const RegisterScreen = ({ navigation }) => {
+    const dispatch = useDispatch();
     const [name, setName] = useState({ value: '', error: '' });
     const [email, setEmail] = useState({ value: '', error: '' });
     const [password, setPassword] = useState({ value: '', error: '' });
@@ -28,8 +31,9 @@ const RegisterScreen = ({ navigation }) => {
             setPassword({ ...password, error: passwordError });
             return;
         }
+        dispatch(registerActions.accountCreationRequest(name, email, password));
 
-        navigation.navigate('Dashboard');
+        // navigation.navigate('Dashboard');
     };
 
     return (
