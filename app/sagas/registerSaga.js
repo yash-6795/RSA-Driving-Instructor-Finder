@@ -5,25 +5,23 @@
  * pwd - password
  * name - name
  */
-import { put, call, select } from 'redux-saga/effects';
-import { delay } from 'redux-saga';
+import {call, put} from 'redux-saga/effects';
 
-import { Alert } from 'react-native';
+import {Alert} from 'react-native';
 import registerUser from "../api/methods/registerUser";
 import * as registerActions from 'app/actions/registerActions';
 import * as navigationActions from 'app/actions/navigationActions';
 // Our worker Saga that logins the user
 export default function* registerAsync(action) {
     yield put(registerActions.enableLoader());
-    //how to call api
-    const response_api = yield call(registerUser, action.name, action.email, action.password);
-    console.log(response_api)
-    //mock response
-    const response = { success: true, data: { id: 1, isVerified:false } };
-
+    const response = yield call(registerUser, action.name, action.email, action.password);
     if (response.success) {
+        // Call action to update state with user information
+        yield put(registerActions.onAccountCreationResponse(response.data))
+        // Disable loader
         yield put(registerActions.disableLoader({}));
-        yield call(navigationActions.resetToHome)
+        // Navigate to user verification
+        yield call(navigationActions.resetToAccountVerification)
     } else {
         setTimeout(() => {
             Alert.alert('BoilerPlate', "Something is wrong");

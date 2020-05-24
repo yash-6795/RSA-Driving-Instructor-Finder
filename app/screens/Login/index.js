@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import { View, TouchableOpacity } from 'react-native';
-import { Text, Button } from 'react-native-paper';
+import {TouchableOpacity, View} from 'react-native';
+import {Button, Text} from 'react-native-paper';
 
-import { useDispatch, useSelector } from 'react-redux';
+import {useDispatch} from 'react-redux';
 import * as loginActions from 'app/actions/loginActions';
 import styles from './styles';
 import Header from "../Register/components/Header";
@@ -11,14 +11,13 @@ import Background from "../Register/components/Background";
 import Logo from "../Register/components/Logo";
 
 export default function Login({navigation}) {
-    const id = useSelector(state => state.loginReducer.id);
     const dispatch = useDispatch();
 
     const [email, setEmail] = useState({ value: '', error: '' });
     const [password, setPassword] = useState({ value: '', error: '' });
 
     const onLogin = () => {
-        dispatch(loginActions.requestLogin(email, password));
+        dispatch(loginActions.requestLogin(email.value, password.value));
     }
 
     return (

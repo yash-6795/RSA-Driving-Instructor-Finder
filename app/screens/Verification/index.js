@@ -1,22 +1,20 @@
 import React, {useState} from 'react';
-import { View, TouchableOpacity } from 'react-native';
-import {Button, Text,} from 'react-native-paper';
-import styles from './styles';
+import {Button,} from 'react-native-paper';
 import Header from "../Register/components/Header";
 import TextInput from "../Register/components/TextInput";
 import Background from "../Register/components/Background";
 import Logo from "../Register/components/Logo";
-import * as loginActions from "../../actions/loginActions";
 import * as accountVerificationActions from "../../actions/verificationActions";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 
 export default function AccountVerification({navigation}) {
+    const user_id = useSelector(state => state.userReducer.user.id);
     const dispatch = useDispatch();
     const [verificationCode, setVerificationCode] = useState({ value: '', error: '' });
 
     const onVerify = () => {
-        dispatch(accountVerificationActions.accountVerificationRequest('1234'));
+        dispatch(accountVerificationActions.accountVerificationRequest(user_id,verificationCode.value));
     }
 
     return (

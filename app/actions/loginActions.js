@@ -24,6 +24,12 @@ export function onLoginResponse(response) {
   };
 }
 
+export function onUserLogout(){
+  return {
+    type : types.USER_LOGOUT
+  }
+}
+
 export function enableLoader() {
   return {
     type: types.ENABLE_LOADER,

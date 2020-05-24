@@ -1,9 +1,10 @@
 import * as types from "./types";
 
-export function accountVerificationRequest(verification_code){
+export function accountVerificationRequest(user_id, verification_code){
     return {
         type: types.ACCOUNT_VERIFICATION_REQUEST,
         verification_code,
+        user_id,
     }
 }
 

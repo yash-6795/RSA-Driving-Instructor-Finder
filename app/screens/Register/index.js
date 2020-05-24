@@ -1,16 +1,12 @@
-import React, { memo, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, {memo, useState} from 'react';
+import {Text, TouchableOpacity, View} from 'react-native';
 import Background from './components/Background';
 import Logo from './components/Logo';
 import Header from './components/Header';
 import Button from './components/Button';
 import TextInput from './components/TextInput';
 import styles from "./styles";
-import {
-    emailValidator,
-    passwordValidator,
-    nameValidator,
-} from '../../utils/validator';
+import {emailValidator, nameValidator, passwordValidator,} from '../../utils/validator';
 import * as registerActions from "../../actions/registerActions";
 import {useDispatch} from "react-redux";
 
@@ -31,9 +27,7 @@ const RegisterScreen = ({ navigation }) => {
             setPassword({ ...password, error: passwordError });
             return;
         }
-        dispatch(registerActions.accountCreationRequest(name, email, password));
-
-        // navigation.navigate('Dashboard');
+        dispatch(registerActions.accountCreationRequest(name.value, email.value, password.value));
     };
 
     return (

@@ -13,7 +13,7 @@ export default function api(path, params, method, token) {
   let options;
   options = {
     headers: {
-      // 'Accept': 'application/json',
+      'Accept': 'application/json',
       'Content-Type': 'application/json',
       ...(token && { token: token }),
     },
