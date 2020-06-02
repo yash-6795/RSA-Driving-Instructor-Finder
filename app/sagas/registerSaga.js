@@ -24,7 +24,7 @@ export default function* registerAsync(action) {
         yield call(navigationActions.resetToAccountVerification)
     } else {
         setTimeout(() => {
-            Alert.alert('BoilerPlate', "Something is wrong");
+            Alert.alert('SignUp Error', response.data.detail?response.data.detail:response.data.error.message);
         }, 200);
     }
 }

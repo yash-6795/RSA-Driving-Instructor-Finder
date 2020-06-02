@@ -2,8 +2,6 @@ import Api from 'app/api';
 import ApiConstants from '../ApiConstants';
 
 export default function loginUser(username, password) {
-    console.log(username)
-    console.log(password)
   const apiPromise =  Api(
     ApiConstants.LOGIN,
       {
@@ -20,6 +18,11 @@ export default function loginUser(username, password) {
             return (statusCode===200)? {success:true, data:data} : {success: false, data:data}
         })
       .catch(error => {
-          return {success:false, errorMessage: error}
+          return {
+              success:false,
+              data: {
+              error
+              }
+          }
       })
 }

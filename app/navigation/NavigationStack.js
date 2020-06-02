@@ -21,7 +21,6 @@ const Stack = createStackNavigator();
 function App() {
     const stackProps = DeviceInfo.isTablet() ? { headerMode: 'none' } : {};
     const user = useSelector(state => state.userReducer.user)
-    console.log(user)
     const dispatch = useDispatch();
     const logout = () => {
         dispatch(loginActions.onUserLogout())

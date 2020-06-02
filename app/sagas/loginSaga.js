@@ -15,7 +15,6 @@ export default function* loginAsync(action) {
   yield put(loginActions.enableLoader());
   //how to call api
   const response = yield call(loginUser, action.username, action.password);
-
   if (response.success) {
     yield put(loginActions.onLoginResponse(response.data));
     yield put(loginActions.disableLoader({}));
@@ -24,7 +23,7 @@ export default function* loginAsync(action) {
     yield put(loginActions.loginFailed());
     yield put(loginActions.disableLoader({}));
     setTimeout(() => {
-      Alert.alert('BoilerPlate', response.Message);
+      Alert.alert('Login Error', response.data.detail?response.data.detail:response.data.error.message);
     }, 200);
   }
 }
