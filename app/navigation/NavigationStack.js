@@ -7,6 +7,7 @@ import {IconButton} from 'react-native-paper';
 import {navigationRef} from './NavigationService';
 import Login from 'app/screens/Login';
 import AppointmentDetail from 'app/screens/AppointmentDetail';
+import UserSettings from "../screens/UserSettings";
 import Tabs from './Tabs';
 import Register from "../screens/Register";
 import Landing from "../screens/Landing";
@@ -22,9 +23,8 @@ function App() {
     const stackProps = DeviceInfo.isTablet() ? { headerMode: 'none' } : {};
     const user = useSelector(state => state.userReducer.user)
     const dispatch = useDispatch();
-    const logout = () => {
-        dispatch(loginActions.onUserLogout())
-        navigationActions.resetToLogin()
+    const userSettings = () => {
+        navigationActions.navigateToUserSettings()
     }
     let initialRouteName = 'Landing'
     if(user.isLoggedIn && user.isVerified){
@@ -51,6 +51,7 @@ function App() {
             <Stack.Screen name="Register" component={Register}/>
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="AccountVerification" component={AccountVerification} />
+            <Stack.Screen name="UserSettings" component={UserSettings}/>
             <Stack.Screen
               name="Home"
               component={Tabs}
@@ -62,7 +63,7 @@ function App() {
                       icon="settings"
                       color="#bdc3c7"
                       size={20}
-                      onPress={logout}
+                      onPress={userSettings}
                     />
                     <IconButton
                       icon="bell"

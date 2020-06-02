@@ -32,3 +32,7 @@ export function resetToLogin(params) {
 export function navigateToAccountVerification(params) {
   NavigationService.navigate('AccountVerification', params);
 }
+
+export function navigateToUserSettings(params) {
+  NavigationService.navigate('UserSettings')
+}
