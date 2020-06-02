@@ -9,9 +9,10 @@ import {
 import LogoutButton from "./components/logoutButton";
 import * as loginActions from "../../actions/loginActions";
 import * as navigationActions from "../../actions/navigationActions";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 const UserSettings = () => {
+    let userProfile = useSelector(state => state.userReducer.user.profile)
     const dispatch = useDispatch();
     const logout = () => {
         dispatch(loginActions.onUserLogout())
@@ -20,11 +21,11 @@ const UserSettings = () => {
     return (
         <View style={styles.container}>
             <View style={styles.header}></View>
-            <Image style={styles.avatar} source={{uri: 'https://i.ya-webdesign.com/images/male-avatar-icon-png-7.png'}}/>
+            <Image style={styles.avatar} source={{uri: userProfile.avatar}}/>
             <View style={styles.body}>
                 <View style={styles.bodyContent}>
-                    <Text style={styles.userName}>John Doe</Text>
-                    <Text style={styles.info}>Athlone, Westmeath</Text>
+                    <Text style={styles.userName}>{userProfile.name}</Text>
+                    <Text style={styles.info}>{`${userProfile.city}, ${userProfile.county}`}</Text>
                     <Text style={styles.description}>
                         In a professional context it often happens that private or corporate clients corder a publication to be made and presented with the actual content still not being ready. Think of a news blog that's filled with content hourly on the day of going live. However, reviewers tend to be distracted by comprehensible content, say, a random text copied from a newspaper or the internet. The are likely to focus on the text, disregarding the layout and its elements.
                     </Text>

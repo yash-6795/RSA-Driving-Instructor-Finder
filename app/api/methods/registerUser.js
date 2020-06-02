@@ -1,13 +1,14 @@
 import Api from 'app/api';
 import ApiConstants from '../ApiConstants';
 
-export default function registerUser(name, username, password) {
+export default function registerUser(name, username, password, userType = 'LEARNER') {
     const apiPromise =  Api(
         ApiConstants.REGISTER,
         {
             email:username,
             password:password,
             name: name,
+            user_type: userType,
         },
         'post',
         null,

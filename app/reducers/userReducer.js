@@ -93,8 +93,7 @@ export const userReducer = createReducer(initialState, {
                     access : action.response.access,
                 },
                 isLoggedIn: true,
-                id: action.response.id,
-                isVerified: action.response.is_verified
+                ...action.response
             }
         };
     },
