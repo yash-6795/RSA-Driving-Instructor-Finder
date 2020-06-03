@@ -10,7 +10,7 @@ import DeviceInfo from 'react-native-device-info';
 
 import MyAppointments from 'app/screens/MyAppointments';
 import Departments from 'app/screens/Departments';
-import Patients from 'app/screens/Patients';
+import Instructors from 'app/screens/Instructors';
 import Reports from 'app/screens/Reports';
 
 import TabBar from 'app/components/tab-bar';
@@ -43,18 +43,18 @@ function Tabs() {
         barStyle={{ backgroundColor: '#ffff' }}
         {...tabBarProps}>
         <Tab.Screen
-          name="Appointments"
-          component={MyAppointments}
+          name="Instructors"
+          component={Instructors}
           options={{
-            tabBarIcon: 'calendar-clock',
+            tabBarIcon: 'account-multiple',
           }}
         />
 
         <Tab.Screen
-          name="Patients"
-          component={Patients}
+          name="Appointments"
+          component={MyAppointments}
           options={{
-            tabBarIcon: 'account-multiple',
+            tabBarIcon: 'calendar-clock',
           }}
         />
         <Tab.Screen

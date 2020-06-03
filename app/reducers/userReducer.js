@@ -111,7 +111,22 @@ export const userReducer = createReducer(initialState, {
             ...state,
             isLoggedIn : false
         }
-    }
+    },
+/*
+* Refresh access tokens using refresh tokens
+*/
 
+    [types.TOKEN_REFRESH_RESPONSE](state, action) {
+        return {
+            ...state,
+            user:{
+                ...state.user,
+                tokens:{
+                    ...state.user.tokens,
+                    access: action.response.access
+                }
+            }
+        }
+    }
 
 });

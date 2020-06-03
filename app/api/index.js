@@ -10,12 +10,13 @@ function processResponse(response) {
   }));
 }
 export default function api(path, params, method, token) {
+  console.log(token)
   let options;
   options = {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      ...(token && { token: token }),
+      ...(token && { 'Authorization' : `Bearer ${token}` }),
     },
     method: method,
     ...(params && { body: JSON.stringify(params) }),
