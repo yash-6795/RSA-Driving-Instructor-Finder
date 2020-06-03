@@ -3,7 +3,7 @@ import {SafeAreaView, FlatList, View} from 'react-native';
 import {Headline, Text, Title} from 'react-native-paper';
 import {useDispatch, useSelector} from "react-redux";
 import * as instructorActions from "app/actions/instructorActions"
-import Item from "./Item";
+import Item from "./Components/Item";
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({

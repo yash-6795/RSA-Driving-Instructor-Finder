@@ -5,9 +5,9 @@ import { Avatar, Card, IconButton } from 'react-native-paper';
 export default function profileCard({
   name,
   avatar,
-
   onSelected,
   disableRightBtn,
+  subtitle
 }) {
   const LeftContent = props => (
     <Avatar.Image
@@ -29,7 +29,7 @@ export default function profileCard({
   return (
     <Card.Title
       title={name}
-      subtitle="View profile"
+      subtitle={subtitle?subtitle:'View Profile'}
       left={LeftContent}
       right={disableRightBtn ? null : RightContent}
       titleStyle={styles.cardTitle}
